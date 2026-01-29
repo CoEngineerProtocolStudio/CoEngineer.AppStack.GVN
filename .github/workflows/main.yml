@@ -28,13 +28,13 @@ jobs:
           pip install build
 
       - name: Build Co-engineer Package
-        # Senior Pivot: Explicitly point to the kit/ directory.
-        # Trade-off: Standard 'python -m build' fails in monorepos without this path.
+        # Senior Pivot: Target the kit directory where pyproject.toml actually lives
         run: python -m build kit/
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
+          # Senior Pivot: Collect the built artifacts from the kit/dist folder
           files: |
             kit/dist/*
             README.md
