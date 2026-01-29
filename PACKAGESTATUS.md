@@ -18,7 +18,7 @@
 
 
 
-## 📝 Manifest
+## Manifest
 
 * [x] `pyproject.toml` (Metadata)
 * [x] `main.yml` (CI/CD Fix)
