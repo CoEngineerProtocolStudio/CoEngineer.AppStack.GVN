@@ -3,14 +3,14 @@ name: Upload Co-engineer Protocol Kit
 on:
   push:
     tags:
-      - 'v*' # This triggers the workflow when you push a tag like v0.1.0
+      - 'v*'
 
 jobs:
   release:
     name: Build and Release Protocol Kit
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Essential for creating the release entry
+      contents: write
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -28,13 +28,15 @@ jobs:
           pip install build
 
       - name: Build Co-engineer Package
-        run: python -m build
+        # Senior Pivot: We target the 'kit' directory specifically
+        # Trade-off: Explicit path avoids the "no pyproject.toml found" error in monorepos.
+        run: python -m build kit/
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            dist/*
+            kit/dist/*
             README.md
             protocols.md
         env:
