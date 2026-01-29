@@ -59,5 +59,6 @@ Automated via GitHub Actions.
 
 ---
 
-**Lead Developer:** Min Thu Khaing
+**Lead Developer:** Min Thu Khaing Min Bhone Shan
+---
 **Organization:** Riverlach Protocol lab Studio
