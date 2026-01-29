@@ -6,15 +6,15 @@ build-backend = "setuptools.build_meta"
 name = "coengineer-appstack-gvn"
 version = "0.1.0"
 authors = [
-{ name="Min Thu Khaing", email="your-email@example.com" },
+  { name="Min Thu Khaing", email="your-email@example.com" },
 ]
 description = "Modular RAG stack for Agri-Venture Studio"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-"google-cloud-aiplatform>=1.70.0",
-"google-auth>=2.0.0",
-"python-dotenv>=1.0.0",
+    "google-cloud-aiplatform>=1.70.0",
+    "google-auth>=2.0.0",
+    "python-dotenv>=1.0.0",
 ]
 
 [project.optional-dependencies]
