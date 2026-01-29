@@ -3,12 +3,14 @@ name: Upload Co-engineer Protocol Kit
 on:
   push:
     tags:
-      - 'v*' # Push events to matching v*, i.e. v0.1.0
+      - 'v*' # This triggers the workflow when you push a tag like v0.1.0
 
 jobs:
   release:
     name: Build and Release Protocol Kit
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # Essential for creating the release entry
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -28,20 +30,12 @@ jobs:
       - name: Build Co-engineer Package
         run: python -m build
 
-      - name: Generate Release Notes
-        run: |
-          echo "Co-engineer Protocol Kit Release ${{ github.ref_name }}" > release_notes.txt
-          echo "Architecture: Builder Stack (Epiphany + Quick Turn)" >> release_notes.txt
-          echo "Engine: Gemini 2.0 Flash + Vertex RAG" >> release_notes.txt
-
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          body_path: release_notes.txt
           files: |
             dist/*
             README.md
-            BUILDER_STACK.md
-            PROTOCOL.md
+            protocols.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
