@@ -59,6 +59,6 @@ Automated via GitHub Actions.
 
 ---
 
-**Lead Developer:** Min Thu Khaing Min Bhone Shan
+**Lead Developer:** Min Thu Khaing Min Bhone San
 
 **Organization:** RiverLush Protocol lab Studio
